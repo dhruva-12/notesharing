@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+   <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form|crispy }}
+    {% for note in notes %}
+    <table>
+    <td>
+   Subject:<tr> {{note.subject}}</tr>&nbsp;
+  Description:<tr>  {{note.description}}</tr>&nbsp;
+   File name:<tr> {{note.notesfile}}</tr>&nbsp;
+   </td></table>
+    {% endfor %}
+    
+    </form>
+    
+    
+    </a>
+{% endblock %}
+
+
